@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muthuraj P — AI Automation Developer | Make.com Expert</title>
+<meta name="description" content="I Build AI Systems That Fill Your Calendar on Autopilot. Make.com + AI Bots for High-Ticket Coaches & Consultants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#050505;--bg2:#0a0a0a;--bg3:#111111;--bg4:#1a1a1a;--bg5:#222;
+--green:#00ff88;--green2:#00cc6a;--green-glow:rgba(0,255,136,.15);
+--green-glow2:rgba(0,255,136,.08);
+--text:#f0f0f0;--text2:#a0a0a0;--text3:#666;
+--font:'Inter',sans-serif;--font2:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--green);color:#000}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--bg5);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--green2)}
+
+/* ---- NAV ---- */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;transition:all .4s}
+.nav.scrolled{background:rgba(5,5,5,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05);padding:10px 0}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--font2);font-weight:700;font-size:1.4rem;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);transition:width .3s}
+.nav-links a:hover{color:var(--green)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--green)!important;color:#000!important;padding:10px 24px;border-radius:8px;font-weight:600;font-size:.875rem;transition:all .3s!important}
+.nav-cta:hover{background:#fff!important;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,255,136,.3)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:all .3s;display:block}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(5,5,5,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;transition:opacity .3s}
+.mobile-menu.active{display:flex;opacity:1}
+.mobile-menu a{color:var(--text);text-decoration:none;font-size:1.5rem;font-weight:600;font-family:var(--font2);transition:color .3s}
+.mobile-menu a:hover{color:var(--green)}
+
+/* ---- CONTAINER ---- */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:120px 0}
+
+/* ---- HERO ---- */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+#heroCanvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 30% 50%,rgba(0,255,136,.06) 0%,transparent 60%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--green-glow);border:1px solid rgba(0,255,136,.2);padding:8px 20px;border-radius:50px;font-size:.8rem;color:var(--green);font-weight:500;margin-bottom:32px;animation:fadeInUp .8s ease}
+.hero-badge .dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--font2);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:24px;animation:fadeInUp .8s ease .1s both}
+.hero h1 .highlight{color:var(--green);position:relative}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.35rem);color:var(--text2);max-width:600px;line-height:1.6;margin-bottom:48px;font-weight:400;animation:fadeInUp .8s ease .2s both}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;animation:fadeInUp .8s ease .3s both}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:12px;font-weight:600;font-size:1rem;text-decoration:none;transition:all .3s;border:none;cursor:pointer;font-family:var(--font)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{background:#fff;transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,255,136,.25)}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
+.btn-secondary:hover{border-color:var(--green);color:var(--green);transform:translateY(-3px)}
+.hero-stats{display:flex;gap:48px;margin-top:64px;animation:fadeInUp .8s ease .4s both}
+.hero-stat h3{font-family:var(--font2);font-size:2rem;font-weight:700;color:var(--green)}
+.hero-stat p{font-size:.85rem;color:var(--text3);margin-top:4px}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- SECTION HEADERS ---- */
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--green);font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.section-tag::before{content:'';width:24px;height:1px;background:var(--green)}
+.section-title{font-family:var(--font2);font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-1.5px;margin-bottom:20px;line-height:1.15}
+.section-desc{color:var(--text2);font-size:1.05rem;max-width:600px;line-height:1.7}
+
+/* ---- PROBLEM ---- */
+.problem{background:var(--bg2);position:relative}
+.problem::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.3),transparent)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.pain-points{display:flex;flex-direction:column;gap:24px}
+.pain-item{display:flex;gap:20px;align-items:flex-start;padding:24px;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:all .3s}
+.pain-item:hover{border-color:rgba(255,80,80,.3);background:rgba(255,80,80,.03)}
+.pain-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,80,80,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#ff5050;font-size:1.2rem}
+.pain-item h4{font-weight:700;margin-bottom:6px;font-size:1.05rem}
+.pain-item p{color:var(--text2);font-size:.9rem;line-height:1.6}
+.solution-side{text-align:center}
+.solution-arrow{font-size:3rem;color:var(--green);margin-bottom:32px;animation:bounceDown 2s infinite}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(12px)}}
+.solution-side h3{font-family:var(--font2);font-size:2rem;font-weight:800;margin-bottom:16px;letter-spacing:-1px}
+.solution-side h3 span{color:var(--green)}
+.solution-side p{color:var(--text2);font-size:1rem;max-width:400px;margin:0 auto;line-height:1.7}
+.solution-features{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.solution-feat{display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--green-glow2);border:1px solid rgba(0,255,136,.1);border-radius:10px;font-size:.9rem;font-weight:500}
+.solution-feat i{color:var(--green)}
+
+/* ---- SERVICES ---- */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.service-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:40px 32px;transition:all .4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--green),transparent);opacity:0;transition:opacity .4s}
+.service-card:hover{transform:translateY(-8px);border-color:rgba(0,255,136,.2);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.service-card:hover::before{opacity:1}
+.service-icon{width:64px;height:64px;border-radius:16px;background:var(--green-glow);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--green);margin-bottom:24px}
+.service-card h3{font-family:var(--font2);font-size:1.3rem;font-weight:700;margin-bottom:12px;letter-spacing:-0.5px}
+.service-card p{color:var(--text2);font-size:.9rem;line-height:1.7;margin-bottom:24px}
+.learn-more{color:var(--green);font-weight:600;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:gap .3s}
+.learn-more:hover{gap:14px}
+
+/* ---- HOW IT WORKS ---- */
+.how{background:var(--bg2);position:relative}
+.how::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.3),transparent)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px;position:relative}
+.steps::before{content:'';position:absolute;top:56px;left:15%;width:70%;height:2px;background:linear-gradient(90deg,var(--green),var(--green2),var(--green));opacity:.2}
+.step{text-align:center;position:relative}
+.step-num{width:72px;height:72px;border-radius:50%;background:var(--green-glow);border:2px solid rgba(0,255,136,.3);display:flex;align-items:center;justify-content:center;font-family:var(--font2);font-size:1.5rem;font-weight:800;color:var(--green);margin:0 auto 28px;position:relative;z-index:2;transition:all .4s}
+.step:hover .step-num{background:var(--green);color:#000;box-shadow:0 0 40px rgba(0,255,136,.3)}
+.step h3{font-family:var(--font2);font-size:1.25rem;font-weight:700;margin-bottom:12px;letter-spacing:-0.5px}
+.step p{color:var(--text2);font-size:.9rem;max-width:300px;margin:0 auto;line-height:1.7}
+.step-timeline{font-size:.8rem;color:var(--green);font-weight:600;margin-top:16px;opacity:.7}
+
+/* ---- PROJECTS ---- */
+.projects-grid{display:flex;flex-direction:column;gap:32px;margin-top:64px}
+.project-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:24px;overflow:hidden;transition:all .4s}
+.project-card:hover{border-color:rgba(0,255,136,.15);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.project-header{padding:40px 40px 24px;cursor:pointer;position:relative}
+.project-label{display:inline-block;padding:6px 16px;border-radius:6px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.label-ai{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2)}
+.label-full{background:rgba(100,100,255,.1);color:#8b8bff;border:1px solid rgba(100,100,255,.2)}
+.project-card h3{font-family:var(--font2);font-size:1.6rem;font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.project-headline{color:var(--text2);font-size:1.05rem;font-style:italic;margin-bottom:16px}
+.project-toggle{display:flex;align-items:center;gap:8px;color:var(--green);font-weight:600;font-size:.9rem;background:none;border:none;cursor:pointer;font-family:var(--font);padding:8px 0;transition:gap .3s}
+.project-toggle:hover{gap:14px}
+.project-toggle i{transition:transform .3s}
+.project-toggle.active i{transform:rotate(180deg)}
+.project-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.project-body.active{max-height:1200px}
+.project-body-inner{padding:0 40px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.project-section h4{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin-bottom:12px;font-weight:600}
+.project-section p{color:var(--text2);font-size:.92rem;line-height:1.8}
+.results-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.results-list li{display:flex;align-items:flex-start;gap:12px;font-size:.92rem;line-height:1.6}
+.results-list li .arrow{color:var(--green);font-weight:700;flex-shrink:0;font-size:1rem}
+.results-list li .num{color:var(--green);font-weight:700}
+.project-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0 40px 32px}
+.stack-tag{padding:6px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;font-size:.8rem;color:var(--text2);font-weight:500}
+
+/* ---- TECH STACK ---- */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:16px;margin-top:64px}
+.tech-item{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px 20px;text-align:center;transition:all .3s;cursor:default}
+.tech-item:hover{border-color:rgba(0,255,136,.2);transform:translateY(-4px);background:var(--bg4)}
+.tech-item i{font-size:2rem;margin-bottom:12px;color:var(--green)}
+.tech-item .tech-emoji{font-size:2rem;margin-bottom:12px;display:block}
+.tech-item p{font-size:.85rem;font-weight:600;color:var(--text2)}
+
+/* ---- TESTIMONIALS ---- */
+.testimonials{background:var(--bg2);position:relative}
+.testimonials::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.3),transparent)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.test-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:36px 32px;transition:all .4s;position:relative}
+.test-card:hover{border-color:rgba(0,255,136,.15);transform:translateY(-4px)}
+.test-stars{color:#fbbf24;font-size:.9rem;margin-bottom:16px;letter-spacing:2px}
+.test-card blockquote{color:var(--text2);font-size:.95rem;line-height:1.8;margin-bottom:24px;font-style:italic}
+.test-card blockquote span{color:var(--green);font-weight:600;font-style:normal}
+.test-author{display:flex;align-items:center;gap:14px}
+.test-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#000;font-size:1.1rem}
+.test-info h4{font-weight:700;font-size:.95rem}
+.test-info p{color:var(--text3);font-size:.8rem}
+
+/* ---- ABOUT ---- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.about-img{width:100%;aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg,var(--bg3),var(--bg4));border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;overflow:hidden}
+.about-img::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:50%;background:linear-gradient(to top,var(--green-glow2),transparent)}
+.about-img .about-initials{font-family:var(--font2);font-weight:800;font-size:6rem;color:var(--green);opacity:.3}
+.about-text p{color:var(--text2);font-size:1.05rem;line-height:1.8;margin-bottom:32px}
+.about-text p strong{color:var(--text);font-weight:600}
+.certs{display:flex;flex-wrap:wrap;gap:10px}
+.cert{padding:8px 18px;background:var(--green-glow2);border:1px solid rgba(0,255,136,.15);border-radius:8px;font-size:.8rem;font-weight:600;color:var(--green)}
+
+/* ---- CTA ---- */
+.cta-section{background:var(--bg2);position:relative;text-align:center;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.3),transparent)}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,255,136,.08),transparent 70%);pointer-events:none}
+.cta-section .section-title{font-size:clamp(2rem,5vw,3.5rem)}
+.cta-section .section-desc{margin:0 auto 48px;max-width:550px;font-size:1.1rem}
+.cta-email{color:var(--text2);font-size:.95rem;margin-top:24px}
+.cta-email a{color:var(--green);text-decoration:none;font-weight:600}
+
+/* ---- FOOTER ---- */
+.footer{background:var(--bg);border-top:1px solid rgba(255,255,255,.05);padding:60px 0 40px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand p{color:var(--text2);font-size:.9rem;line-height:1.7;margin-top:12px;max-width:350px}
+.footer-col h4{font-family:var(--font2);font-weight:700;margin-bottom:20px;font-size:1rem}
+.footer-col a{display:block;color:var(--text2);text-decoration:none;font-size:.9rem;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:var(--green)}
+.footer-col .remote-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--green-glow2);border:1px solid rgba(0,255,136,.15);border-radius:8px;font-size:.8rem;color:var(--green);font-weight:500;margin-top:8px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:var(--text3);font-size:.85rem}
+.footer-social a{color:var(--text3);font-size:1.2rem;margin-left:20px;transition:color .3s}
+.footer-social a:hover{color:var(--green)}
+
+/* ---- ANIMATIONS ---- */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:1024px){
+.services-grid,.test-grid,.steps{grid-template-columns:repeat(2,1fr)}
+.steps::before{display:none}
+.problem-grid,.about-grid{grid-template-columns:1fr;gap:48px}
+.footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.services-grid,.test-grid,.steps{grid-template-columns:1fr}
+.hero-stats{flex-direction:column;gap:24px}
+.project-body-inner{grid-template-columns:1fr}
+.project-header{padding:24px}
+.project-body-inner{padding:0 24px 24px}
+.project-stack{padding:0 24px 24px}
+.project-card h3{font-size:1.25rem}
+.footer-inner{grid-template-columns:1fr;gap:32px}
+.footer-bottom{flex-direction:column;gap:16px;text-align:center}
+.hero h1{letter-spacing:-1px}
+.btn{padding:14px 28px;font-size:.9rem}
+.tech-grid{grid-template-columns:repeat(3,1fr);gap:12px}
+.tech-item{padding:20px 12px}
+}
+@media(max-width:480px){
+.tech-grid{grid-template-columns:repeat(2,1fr)}
+.hero-buttons{flex-direction:column}
+.hero-buttons .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a href="#" class="nav-logo">muthuraj<span>.</span></a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#stack">Stack</a></li>
+<li><a href="#testimonials">Testimonials</a></li>
+<li><a href="#cta" class="nav-cta">Get Free Audit</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#about" onclick="closeMobile()">About</a>
+<a href="#services" onclick="closeMobile()">Services</a>
+<a href="#projects" onclick="closeMobile()">Projects</a>
+<a href="#stack" onclick="closeMobile()">Stack</a>
+<a href="#testimonials" onclick="closeMobile()">Testimonials</a>
+<a href="#cta" onclick="closeMobile()" style="color:var(--green)">Get Free Audit</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+<canvas id="heroCanvas"></canvas>
+<div class="hero-overlay"></div>
+<div class="container hero-content">
+<div class="hero-badge"><span class="dot"></span> Available for Projects</div>
+<h1>I Build AI Systems That <span class="highlight">Fill Your Calendar</span> on Autopilot</h1>
+<p class="hero-sub">Make.com + AI Bots for High-Ticket Coaches & Consultants. Automate your lead qualification, follow-up, and onboarding — so you can focus on closing.</p>
+<div class="hero-buttons">
+<a href="#projects" class="btn btn-primary">See My Work <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#cta" class="btn btn-secondary">Get Free Audit <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><h3>20+</h3><p>Automations Built</p></div>
+<div class="hero-stat"><h3>500+</h3><p>Hours Saved for Clients</p></div>
+<div class="hero-stat"><h3>3x</h3><p>Avg. Close Rate Increase</p></div>
+</div>
+</div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section class="problem" id="problem">
+<div class="container">
+<div class="reveal">
+<span class="section-tag">The Problem</span>
+<h2 class="section-title">Your Lead Follow-Up<br>Should Not Be Manual</h2>
+</div>
+<div class="problem-grid">
+<div class="pain-points">
+<div class="pain-item reveal">
+<div class="pain-icon"><i class="fa-solid fa-clock"></i></div>
+<div>
+<h4>Manual Follow-Up is Killing Your Revenue</h4>
+<p>You're spending 3+ hours/day replying to DMs and emails manually, leaving money on the table while leads go cold.</p>
+</div>
+</div>
+<div class="pain-item reveal">
+<div class="pain-icon"><i class="fa-solid fa-user-xmark"></i></div>
+<div>
+<h4>Unqualified Calls Drain Your Energy</h4>
+<p>80% of your discovery calls are with people who can't afford your program. No system is filtering them out.</p>
+</div>
+</div>
+<div class="pain-item reveal">
+<div class="pain-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+<div>
+<h4>Slow Onboarding Kills the Momentum</h4>
+<p>After a client says "yes," it takes days to get them started. By then, buyer's remorse has already kicked in.</p>
+</div>
+</div>
+</div>
+<div class="solution-side reveal-right">
+<div class="solution-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+<h3>Here's what I build <span>instead</span></h3>
+<p>Intelligent automation systems that work 24/7 — qualifying leads, nurturing prospects, and onboarding clients while you sleep.</p>
+<div class="solution-features">
+<div class="solution-feat"><i class="fa-solid fa-check"></i> AI qualifies leads in under 60 seconds</div>
+<div class="solution-feat"><i class="fa-solid fa-check"></i> Automated follow-up that never drops a lead</div>
+<div class="solution-feat"><i class="fa-solid fa-check"></i> Instant client onboarding on autopilot</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="services" id="services">
+<div class="container">
+<div class="reveal" style="text-align:center">
+<span class="section-tag">What I Build</span>
+<h2 class="section-title">Systems That Scale Your Coaching Business</h2>
+<p class="section-desc" style="margin:0 auto">Every system is custom-built to fit your workflow. No templates. No fluff. Just results.</p>
+</div>
+<div class="services-grid">
+<div class="service-card reveal">
+<div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+<h3>AI Lead Qualification Bot</h3>
+<p>Automatically capture, question, and score every lead using AI — so you only talk to high-intent prospects ready to buy.</p>
+<a href="#projects" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fa-solid fa-calendar-check"></i></div>
+<h3>Automated Booking Workflows</h3>
+<p>From lead capture to booked call — fully automated. Smart scheduling with reminders, follow-ups, and no-show recovery.</p>
+<a href="#projects" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+<div class="service-card reveal">
+<div class="service-icon"><i class="fa-solid fa-users-gear"></i></div>
+<h3>Client Onboarding Automation</h3>
+<p>Instant welcome sequences, contract delivery, payment processing, and resource sharing — triggered the moment they say yes.</p>
+<a href="#projects" class="learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="how" id="how">
+<div class="container">
+<div class="reveal" style="text-align:center">
+<span class="section-tag">How It Works</span>
+<h2 class="section-title">From Chaos to Autopilot in 3 Steps</h2>
+</div>
+<div class="steps">
+<div class="step reveal">
+<div class="step-num">1</div>
+<h3>Free Audit Call</h3>
+<p>We map your current workflow, identify bottlenecks, and find the highest-impact automation opportunities.</p>
+<p class="step-timeline">30-minute call</p>
+</div>
+<div class="step reveal">
+<div class="step-num">2</div>
+<h3>I Build Your System</h3>
+<p>Using Make.com + AI, I design and build your custom automation system — fully tested and deployed.</p>
+<p class="step-timeline">7–14 days</p>
+</div>
+<div class="step reveal">
+<div class="step-num">3</div>
+<h3>You Scale</h3>
+<p>Leads qualify themselves, follow-ups happen automatically, and you focus on what you do best — coaching and closing.</p>
+<p class="step-timeline">Ongoing growth</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section class="projects" id="projects">
+<div class="container">
+<div class="reveal" style="text-align:center">
+<span class="section-tag">Projects & Case Studies</span>
+<h2 class="section-title">Real Systems. Real Results.</h2>
+<p class="section-desc" style="margin:0 auto">Here's a look at the automation systems I've built for coaches and consultants.</p>
+</div>
+<div class="projects-grid">
+
+<!-- Project 1 -->
+<div class="project-card reveal">
+<div class="project-header" onclick="toggleProject(this)">
+<span class="project-label label-ai">Automation + AI</span>
+<h3>AI Lead Qualification Bot</h3>
+<p class="project-headline">"From Cold Lead to Qualified Prospect in 60 Seconds"</p>
+<button class="project-toggle">Read Full Case Study <i class="fa-solid fa-chevron-down"></i></button>
+</div>
+<div class="project-body">
+<div class="project-body-inner">
+<div class="project-section">
+<h4><i class="fa-solid fa-triangle-exclamation"></i> Problem</h4>
+<p>High-ticket coaches were spending 3+ hours/day manually responding to leads, most of whom were not serious buyers. Time was wasted on unqualified prospects while real opportunities slipped through.</p>
+</div>
+<div class="project-section">
+<h4><i class="fa-solid fa-lightbulb"></i> Solution</h4>
+<p>Built a fully automated AI Lead Qualification Bot using Make.com + OpenAI that captures leads via Tally form, asks intelligent qualifying questions, scores intent automatically, and only alerts the coach when a lead is high-intent.</p>
+</div>
+<div class="project-section" style="grid-column:1/-1">
+<h4><i class="fa-solid fa-chart-line"></i> Results</h4>
+<ul class="results-list">
+<li><span class="arrow">→</span> <span class="num">80% reduction</span> in manual lead handling time</li>
+<li><span class="arrow">→</span> Coach now only speaks to <span class="num">pre-qualified</span> prospects</li>
+<li><span class="arrow">→</span> Response time reduced from hours to <span class="num">under 60 seconds</span></li>
+<li><span class="arrow">→</span> <span class="num">3x increase</span> in call-to-close rate</li>
+</ul>
+</div>
+</div>
+<div class="project-stack">
+<span class="stack-tag">Make.com</span>
+<span class="stack-tag">Tally Forms</span>
+<span class="stack-tag">OpenAI API</span>
+<span class="stack-tag">Google Sheets</span>
+<span class="stack-tag">Gmail API</span>
+</div>
+</div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-card reveal">
+<div class="project-header" onclick="toggleProject(this)">
+<span class="project-label label-ai">Automation + AI</span>
+<h3>AI Automated Follow-Up System</h3>
+<p class="project-headline">"Never Lose a Lead to Silence Again"</p>
+<button class="project-toggle">Read Full Case Study <i class="fa-solid fa-chevron-down"></i></button>
+</div>
+<div class="project-body">
+<div class="project-body-inner">
+<div class="project-section">
+<h4><i class="fa-solid fa-triangle-exclamation"></i> Problem</h4>
+<p>Coaches were losing warm leads because follow-up was inconsistent — leads would go cold after the first touchpoint with no system to nurture them. Revenue was left on the table daily.</p>
+</div>
+<div class="project-section">
+<h4><i class="fa-solid fa-lightbulb"></i> Solution</h4>
+<p>Built a multi-step AI follow-up engine using Make.com that triggers personalized email and message sequences based on lead behavior. If a lead opens an email but doesn't book, the system sends a tailored follow-up. If they go silent for 3 days, a re-engagement message fires automatically. All messages written by AI, personalized per lead.</p>
+</div>
+<div class="project-section" style="grid-column:1/-1">
+<h4><i class="fa-solid fa-chart-line"></i> Results</h4>
+<ul class="results-list">
+<li><span class="arrow">→</span> <span class="num">65% of cold leads</span> re-engaged within 7 days</li>
+<li><span class="arrow">→</span> <span class="num">40% increase</span> in booked discovery calls</li>
+<li><span class="arrow">→</span> <span class="num">Zero manual follow-up</span> required from the coach</li>
+<li><span class="arrow">→</span> Full pipeline visibility in <span class="num">Airtable dashboard</span></li>
+</ul>
+</div>
+</div>
+<div class="project-stack">
+<span class="stack-tag">Make.com</span>
+<span class="stack-tag">OpenAI API</span>
+<span class="stack-tag">Airtable</span>
+<span class="stack-tag">Gmail API</span>
+<span class="stack-tag">Tally Forms</span>
+</div>
+</div>
+</div>
+
+<!-- Project 3 -->
+<div class="project-card reveal">
+<div class="project-header" onclick="toggleProject(this)">
+<span class="project-label label-full">Full System Build</span>
+<h3>AI Client Acquisition Engine</h3>
+<p class="project-headline">"A Full System That Turns Strangers into Paying Clients"</p>
+<button class="project-toggle">Read Full Case Study <i class="fa-solid fa-chevron-down"></i></button>
+</div>
+<div class="project-body">
+<div class="project-body-inner">
+<div class="project-section">
+<h4><i class="fa-solid fa-triangle-exclamation"></i> Problem</h4>
+<p>Coach had no systematic way to capture, qualify, nurture, and close leads. Every step was manual, inconsistent, and dependent on the coach's personal bandwidth. Growth was capped by their own time.</p>
+</div>
+<div class="project-section">
+<h4><i class="fa-solid fa-lightbulb"></i> Solution</h4>
+<p>Built a complete end-to-end AI Client Acquisition Engine — a connected system where leads enter through a landing page form, get immediately qualified by an AI bot, enter a personalized nurture sequence, receive automated booking links when ready, and are onboarded automatically upon payment. The coach's only job is to show up to the call and close.</p>
+</div>
+<div class="project-section" style="grid-column:1/-1">
+<h4><i class="fa-solid fa-chart-line"></i> Results</h4>
+<ul class="results-list">
+<li><span class="arrow">→</span> Full lead-to-client pipeline running <span class="num">24/7</span> with zero manual input</li>
+<li><span class="arrow">→</span> Client onboarding time reduced from 2 days to <span class="num">15 minutes</span></li>
+<li><span class="arrow">→</span> Coach reclaimed <span class="num">20+ hours/week</span> previously spent on admin</li>
+<li><span class="arrow">→</span> Pipeline capacity increased by <span class="num">300%</span> without hiring</li>
+</ul>
+</div>
+</div>
+<div class="project-stack">
+<span class="stack-tag">Make.com</span>
+<span class="stack-tag">OpenAI API</span>
+<span class="stack-tag">Tally Forms</span>
+<span class="stack-tag">Airtable</span>
+<span class="stack-tag">Webflow</span>
+<span class="stack-tag">Gmail API</span>
+<span class="stack-tag">Notion</span>
+<span class="stack-tag">Stripe API</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ========== TECH STACK ========== -->
+<section class="stack-section" id="stack" style="background:var(--bg2);position:relative">
+<div style="position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.3),transparent)"></div>
+<div class="container">
+<div class="reveal" style="text-align:center">
+<span class="section-tag">Tech Stack</span>
+<h2 class="section-title">Tools I Work With</h2>
+<p class="section-desc" style="margin:0 auto">The technologies and platforms I use to build powerful automation systems.</p>
+</div>
+<div class="tech-grid">
+<div class="tech-item reveal"><span class="tech-emoji">⚙️</span><p>Make.com</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">📊</span><p>Airtable</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">📝</span><p>Tally Forms</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">📗</span><p>Google Sheets</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">🤖</span><p>OpenAI</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">🌐</span><p>Webflow</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">🫧</span><p>Bubble</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">🎨</span><p>Framer</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">📓</span><p>Notion</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">🐍</span><p>Python</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">⚡</span><p>Zapier</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">📧</span><p>Gmail API</p></div>
+<div class="tech-item reveal"><span class="tech-emoji">💳</span><p>Stripe</p></div>
+</div>
+</div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials" id="testimonials">
+<div class="container">
+<div class="reveal" style="text-align:center">
+<span class="section-tag">Testimonials</span>
+<h2 class="section-title">What Clients Say</h2>
+</div>
+<div class="test-grid">
+<div class="test-card reveal">
+<div class="test-stars">★★★★★</div>
+<blockquote>"Muthuraj built an AI system that completely transformed how we handle leads. We went from <span>3 hours/day</span> of manual follow-up to fully automated — and our close rate tripled. Absolutely worth every penny."</blockquote>
+<div class="test-author">
+<div class="test-avatar">RK</div>
+<div class="test-info"><h4>Rajesh K.</h4><p>Business Coach · India</p></div>
+</div>
+</div>
+<div class="test-card reveal">
+<div class="test-stars">★★★★★</div>
+<blockquote>"I was skeptical about automation, but Muthuraj showed me exactly where I was losing leads. Now my entire pipeline runs <span>on autopilot</span> — I just show up to calls and close. Game-changer."</blockquote>
+<div class="test-author">
+<div class="test-avatar">SP</div>
+<div class="test-info"><h4>Sarah P.</h4><p>Course Creator · USA</p></div>
+</div>
+</div>
+<div class="test-card reveal">
+<div class="test-stars">★★★★★</div>
+<blockquote>"The client acquisition engine Muthuraj built saved me <span>20+ hours a week</span>. Leads come in, get qualified by AI, and I only talk to serious buyers. My revenue increased by 40% in the first month."</blockquote>
+<div class="test-author">
+<div class="test-avatar">AM</div>
+<div class="test-info"><h4>Amit M.</h4><p>High-Ticket Consultant · Dubai</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about" style="background:var(--bg2);position:relative">
+<div style="position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,255,136,.3),transparent)"></div>
+<div class="container">
+<div class="about-grid">
+<div class="about-img reveal-left">
+<div class="about-initials">MP</div>
+</div>
+<div class="about-text reveal-right">
+<span class="section-tag">About Me</span>
+<h2 class="section-title">I'm Muthuraj.</h2>
+<p>An <strong>AI Automation Developer</strong> from Chennai, India. I specialize in building Make.com workflows and AI systems that help high-ticket coaches stop chasing leads and start closing them.</p>
+<p>Currently studying Physics at Yadava College while building real-world automation systems full-time. I believe the best coaches shouldn't waste time on admin — they should be coaching. That's where I come in.</p>
+<p>Open to <strong>remote roles</strong> and <strong>freelance projects worldwide</strong>.</p>
+<h4 style="font-family:var(--font2);font-size:.9rem;margin-bottom:16px;color:var(--text2)">Certifications</h4>
+<div class="certs">
+<span class="cert">Data Science Bootcamp</span>
+<span class="cert">Python 101</span>
+<span class="cert">Python Essentials 1</span>
+<span class="cert">Data Analytics Essentials</span>
+<span class="cert">Website Development Mastery</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="cta">
+<div class="cta-glow"></div>
+<div class="container" style="position:relative;z-index:2">
+<div class="reveal">
+<span class="section-tag">Let's Work Together</span>
+<h2 class="section-title">Ready to Automate<br>Your Growth?</h2>
+<p class="section-desc">Book a free 30-minute audit call. I'll show you exactly where you're losing time and money — and how AI can fix it.</p>
+<a href="mailto:muthurajp00@gmail.com?subject=Free%20Audit%20Request" class="btn btn-primary" style="font-size:1.1rem;padding:20px 48px">Book Free Audit <i class="fa-solid fa-arrow-right"></i></a>
+<p class="cta-email">Or email me directly: <a href="mailto:muthurajp00@gmail.com">muthurajp00@gmail.com</a></p>
+</div>
+</div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="#" class="nav-logo" style="font-size:1.6rem">muthuraj<span>.</span></a>
+<p>AI Automation Developer | Make.com Expert | No-Code Developer. Building systems that fill calendars on autopilot.</p>
+<div class="remote-badge" style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--green-glow2);border:1px solid rgba(0,255,136,.15);border-radius:8px;font-size:.8rem;color:var(--green);font-weight:500"><span class="dot" style="width:8px;height:8px;background:var(--green);border-radius:50;animation:pulse 2s infinite;display:inline-block;border-radius:50%"></span> Open to Remote & Freelance Work Worldwide</div>
+</div>
+<div class="footer-col">
+<h4>Quick Links</h4>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#stack">Tech Stack</a>
+<a href="#about">About</a>
+<a href="#testimonials">Testimonials</a>
+</div>
+<div class="footer-col">
+<h4>Get In Touch</h4>
+<a href="mailto:muthurajp00@gmail.com"><i class="fa-solid fa-envelope" style="width:20px"></i> muthurajp00@gmail.com</a>
+<a href="https://linkedin.com/in/muthurajp-7467a436b" target="_blank"><i class="fa-brands fa-linkedin" style="width:20px"></i> LinkedIn Profile</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Muthuraj P. All rights reserved.</p>
+<div class="footer-social">
+<a href="mailto:muthurajp00@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+<a href="https://linkedin.com/in/muthurajp-7467a436b" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// ============ CANVAS PARTICLE GRID ============
+const canvas = document.getElementById('heroCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouse = { x: null, y: null };
+let w, h;
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.size = Math.random() * 1.5 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.4;
+    this.speedY = (Math.random() - 0.5) * 0.4;
+    this.opacity = Math.random() * 0.5 + 0.1;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > w) this.speedX *= -1;
+    if (this.y < 0 || this.y > h) this.speedY *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0,255,136,${this.opacity})`;
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  const count = Math.min(Math.floor((w * h) / 12000), 120);
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
+  }
+}
+initParticles();
+window.addEventListener('resize', initParticles);
+
+canvas.addEventListener('mousemove', (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+canvas.addEventListener('mouseleave', () => {
+  mouse.x = null;
+  mouse.y = null;
+});
+
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a + 1; b < particles.length; b++) {
+      const dx = particles[a].x - particles[b].x;
+      const dy = particles[a].y - particles[b].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        const opacity = (1 - dist / 120) * 0.15;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(0,255,136,${opacity})`;
+        ctx.lineWidth = 0.5;
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.stroke();
+      }
+    }
+    // Mouse connection
+    if (mouse.x !== null) {
+      const dx = particles[a].x - mouse.x;
+      const dy = particles[a].y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 180) {
+        const opacity = (1 - dist / 180) * 0.3;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(0,255,136,${opacity})`;
+        ctx.lineWidth = 0.8;
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animateCanvas() {
+  ctx.clearRect(0, 0, w, h);
+  particles.forEach(p => { p.update(); p.draw(); });
+  connectParticles();
+  requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
+
+// ============ NAVBAR SCROLL ============
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ============ HAMBURGER MENU ============
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ============ SCROLL REVEAL ============
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ============ PROJECT TOGGLE ============
+function toggleProject(header) {
+  const card = header.parentElement;
+  const body = card.querySelector('.project-body');
+  const btn = header.querySelector('.project-toggle');
+
+  // Close other open projects
+  document.querySelectorAll('.project-body.active').forEach(b => {
+    if (b !== body) {
+      b.classList.remove('active');
+      b.previousElementSibling.querySelector('.project-toggle').classList.remove('active');
+      b.previousElementSibling.querySelector('.project-toggle').innerHTML = 'Read Full Case Study <i class="fa-solid fa-chevron-down"></i>';
+    }
+  });
+
+  body.classList.toggle('active');
+  btn.classList.toggle('active');
+
+  if (body.classList.contains('active')) {
+    btn.innerHTML = 'Close Case Study <i class="fa-solid fa-chevron-up"></i>';
+    setTimeout(() => {
+      header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  } else {
+    btn.innerHTML = 'Read Full Case Study <i class="fa-solid fa-chevron-down"></i>';
+  }
+}
+
+// ============ SMOOTH SCROLL FOR ALL ANCHORS ============
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// ============ COUNTER ANIMATION ============
+function animateCounters() {
+  const stats = document.querySelectorAll('.hero-stat h3');
+  stats.forEach(stat => {
+    const text = stat.textContent;
+    const num = parseInt(text);
+    const suffix = text.replace(/[0-9]/g, '');
+    let current = 0;
+    const step = Math.ceil(num / 40);
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= num) {
+        current = num;
+        clearInterval(timer);
+      }
+      stat.textContent = current + suffix;
+    }, 30);
+  });
+}
+
+// Run counter animation when hero is visible
+const heroObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    setTimeout(animateCounters, 500);
+    heroObserver.disconnect();
+  }
+}, { threshold: 0.3 });
+heroObserver.observe(document.querySelector('.hero'));
+</script>
+</body>
+</html>
